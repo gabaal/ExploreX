@@ -16,7 +16,7 @@ const TopPost = () => {
           id="top-post"
           className="text-center text-2xl font-extrabold uppercase text-tertiary inline-block px-2 mb-10"
         >
-          Top Post
+          Top Posts
         </h2>
       </div>
       <div className="flex h-full flex-col gap-12 items-center">
