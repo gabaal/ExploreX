@@ -9,8 +9,29 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 import MobileMenu from "./MobileMenu";
 import useMenuActive from "@/hooks/useMenuActive";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
+  const [isScrolling, setIsScrolling] = useState(false);
+  const [openUserMenu, setOpenUserMenu] = useState(false);
+
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolling(true);
+      } else {
+        setIsScrolling(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <nav className="py-4 w-full">
       <div className="w-[95%] mx-auto max-w-[1450px] flex  items-center justify-between  border-b border-gray-100">
