@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { blogData } from "@/constants/blogData";
 import Tag from "../ui/Tag";
 import Overlay from "../ui/Overlay";

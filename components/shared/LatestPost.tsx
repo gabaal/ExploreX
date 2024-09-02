@@ -7,7 +7,7 @@ import Button from "../ui/Button";
 const LatestPost = () => {
   const latestPost = blogData.filter((blog) => blog.latestPost === true);
 
-  const [visibleBlogs, setVisibleBlogs] = useState(3);
+  const [visibleBlogs, setVisibleBlogs] = useState(5);
 
   const showMoreBlogs = () => {
     setVisibleBlogs((prevVisibleBlogs) => prevVisibleBlogs + 3);
@@ -20,7 +20,7 @@ const LatestPost = () => {
           id="latest-post"
           className="text-center text-2xl font-extrabold uppercase text-tertiary inline-block px-2 mb-10"
         >
-          Latest Post
+          Latest Posts
         </h2>
       </div>
 
