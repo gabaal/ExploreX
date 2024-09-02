@@ -33,8 +33,19 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="py-4 w-full">
-      <div className="w-[95%] mx-auto max-w-[1450px] flex  items-center justify-between  border-b border-gray-100">
+    <nav
+      className={clsx(
+        "py-4 w-full",
+        isScrolling ? "fixed top-0 bg-light shadow-lg z-10" : "relative"
+      )}
+    >
+      <div
+        className={clsx(
+          "w-[95%] mx-auto max-w-[1450px] flex  items-center justify-between  border-b border-gray-100",
+          isScrolling && "pb-0 border-none",
+          !isScrolling && "pb-5"
+        )}
+      >
         <div className="flex-1">
           <Link href={"/"}>
             <h1 className="text-3xl font-extrabold text-secondary">

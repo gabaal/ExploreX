@@ -28,14 +28,18 @@ const Hero = () => {
               <span>{post.authorName}</span>
               <span className=" italic">{post.publishDate}</span>
             </div>
-            <div className="relative max-h-[600px] overflow-hidden shadow-xl">
-              <img
-                src={post.image_path}
-                alt={`image for ${post.title}`}
-                className="object-cover w-full h-full"
-              />
-              <Overlay />
-            </div>
+            <Link href={{ pathname: `blog/${post.id}`, query: { ...post } }}>
+              <div className="relative max-h-[600px] overflow-hidden shadow-xl">
+                {post.image_path && (
+                  <img
+                    src={post.image_path}
+                    alt={`image for ${post.title}`}
+                    className="object-cover w-full h-full"
+                  />
+                )}
+                <Overlay />
+              </div>
+            </Link>
           </article>
         ))}
         <div className="grid grid-cols-3 gap-8 max-lg:grid-cols-1">
@@ -44,7 +48,10 @@ const Hero = () => {
               key={post.id}
               className="flex flex-col gap-3 items-center text-center relative"
             >
-              <Link className="w-full" href={`/blog/${post.id}`}>
+              <Link
+                className="w-full"
+                href={{ pathname: `blog/${post.id}`, query: { ...post } }}
+              >
                 <div className="relative  overflow-hidden h-72 shadow-xl w-full">
                   {post.image_path && (
                     <img
